@@ -1,0 +1,930 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vigyan Aviksha Result 2026 | Paschim Banga Vigyan Mancha — Alipurduar</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            pbvm: {
+              blue: '#002b7f',
+              darkblue: '#001a4e',
+              deepnavy: '#061330',
+              red: '#be123c',
+              gold: '#d97706',
+              surface: '#f8fafc'
+            }
+          },
+          fontFamily: {
+            cinzel: ['Cinzel', 'serif'],
+            sans: ['Inter', 'sans-serif']
+          },
+          boxShadow: {
+            'official': '0 4px 20px -2px rgba(0, 26, 78, 0.12), 0 2px 6px -1px rgba(0, 26, 78, 0.07)'
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    .official-bg-grid {
+      background-color: #001a4e;
+      background-image: 
+        linear-gradient(rgba(217, 119, 6, 0.12) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(217, 119, 6, 0.12) 1px, transparent 1px);
+      background-size: 36px 36px;
+    }
+
+    @page {
+      size: A4 portrait;
+      margin: 12mm;
+    }
+
+    @media print {
+      html, body {
+        height: auto !important;
+        min-height: 0 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        background: #ffffff !important;
+        overflow: visible !important;
+      }
+
+      #appWrapper,
+      .no-print {
+        display: none !important;
+      }
+
+      #scoreCardModal {
+        position: static !important;
+        display: block !important;
+        inset: auto !important;
+        width: 100% !important;
+        height: auto !important;
+        max-height: none !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        background: #ffffff !important;
+        overflow: visible !important;
+      }
+
+      #scoreCardModalCard {
+        position: static !important;
+        display: block !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        height: auto !important;
+        max-height: none !important;
+        box-shadow: none !important;
+        border: 2px solid #002b7f !important;
+        border-radius: 8px !important;
+        overflow: visible !important;
+      }
+
+      #scoreCardPrintArea {
+        position: static !important;
+        display: block !important;
+        width: 100% !important;
+        height: auto !important;
+        max-height: none !important;
+        padding: 20px !important;
+        margin: 0 !important;
+        overflow: visible !important;
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+
+      .print-grid-2 {
+        display: grid !important;
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        gap: 8px !important;
+      }
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased min-h-screen flex flex-col selection:bg-amber-400 selection:text-slate-950">
+
+  <div id="appWrapper" class="min-h-screen flex flex-col">
+
+    <!-- Compact Header -->
+    <header class="bg-gradient-to-r from-pbvm-darkblue via-pbvm-blue to-[#084298] text-white border-b-4 border-amber-400">
+      <div class="max-w-5xl mx-auto px-3 py-2 flex items-center gap-3">
+        <a href="index.html" class="w-10 h-10 bg-white rounded-full p-0.5 ring-2 ring-amber-400 flex-shrink-0 flex items-center justify-center overflow-hidden">
+          <img src="pvbm logo_3.jpeg"
+               onerror="this.onerror=null; this.src='pvbm logo.jpeg'; this.onerror=function(){this.src='pvbm logo_2.jpeg';};"
+               alt="Paschim Banga Vigyan Mancha Emblem" class="w-full h-full object-contain" />
+        </a>
+        <div class="min-w-0">
+          <h1 class="font-cinzel text-[13px] sm:text-lg font-black tracking-wide uppercase leading-tight truncate">Paschim Banga Vigyan Mancha</h1>
+          <p class="text-[10px] sm:text-xs font-semibold text-amber-300 uppercase tracking-wider leading-tight truncate">Alipurduar • Vigyan Aviksha 2026 Result</p>
+        </div>
+      </div>
+    </header>
+
+    <main class="flex-1 max-w-5xl w-full mx-auto px-3 py-3 space-y-3">
+
+      <!-- Search (top, visible without scrolling) -->
+      <section class="bg-white rounded-2xl shadow-official border border-slate-200 p-3 sm:p-5">
+        <form id="resultSearchForm" onsubmit="handleFormSubmit(event)" class="space-y-2">
+          <label for="searchInput" class="block text-[11px] sm:text-xs font-extrabold text-slate-700 uppercase tracking-wider">
+            Search by Roll Number or Candidate Name
+          </label>
+          <div class="flex gap-2">
+            <div class="relative flex-1 min-w-0">
+              <i data-lucide="search" class="w-4 h-4 text-pbvm-blue absolute left-3 top-1/2 -translate-y-1/2"></i>
+              <input
+                type="text"
+                id="searchInput"
+                oninput="handleLiveSearch()"
+                placeholder="Roll Number or Name..."
+                autocomplete="off"
+                class="w-full pl-9 pr-9 py-3 bg-slate-50 border-2 border-slate-300 rounded-xl text-base font-medium focus:outline-none focus:ring-2 focus:ring-pbvm-blue focus:border-pbvm-blue focus:bg-white transition"
+              />
+              <button onclick="clearSearch()" id="clearSearchBtn" type="button" title="Clear Input" class="hidden absolute right-2.5 top-1/2 -translate-y-1/2 text-slate-400 hover:text-rose-600 transition">
+                <i data-lucide="x-circle" class="w-5 h-5"></i>
+              </button>
+            </div>
+            <button type="submit" class="px-4 sm:px-7 py-3 bg-pbvm-blue hover:bg-pbvm-darkblue text-white font-extrabold text-sm rounded-xl shadow-md transition flex items-center justify-center gap-1.5 flex-shrink-0 cursor-pointer">
+              <i data-lucide="check-circle-2" class="w-4 h-4 text-amber-300"></i>
+              <span>Submit</span>
+            </button>
+          </div>
+          <div class="flex flex-wrap items-center justify-between gap-x-3 text-[11px] text-slate-500">
+            <span>Marks are hidden in the list. Tap a candidate to view the Report Card.</span>
+            <span id="matchSummaryText" class="font-semibold text-pbvm-blue"></span>
+          </div>
+        </form>
+      </section>
+
+      <!-- Error / Diagnostic Alert Banner -->
+      <div id="syncAlertBanner" class="hidden bg-amber-50 border border-amber-300 text-amber-900 rounded-2xl p-3 text-xs flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+        <div class="flex items-start gap-2.5">
+          <i data-lucide="alert-triangle" class="w-5 h-5 text-amber-600 flex-shrink-0 mt-0.5"></i>
+          <div class="space-y-1">
+            <p id="syncAlertText" class="font-bold">Connecting to Database...</p>
+            <p id="syncAlertSub" class="text-[11px] text-amber-800"></p>
+          </div>
+        </div>
+        <button onclick="manualSync()" type="button" class="px-3.5 py-1.5 bg-amber-600 text-white font-bold rounded-lg hover:bg-amber-700 transition flex-shrink-0">
+          Retry Now
+        </button>
+      </div>
+
+      <!-- Empty prompt -->
+      <section id="emptyPromptCard" class="bg-white rounded-2xl shadow-official border border-slate-200 p-5 text-center space-y-1.5">
+        <div class="w-10 h-10 rounded-xl bg-blue-50 text-pbvm-blue flex items-center justify-center mx-auto border border-blue-100">
+          <i data-lucide="user-search" class="w-5 h-5"></i>
+        </div>
+        <h3 class="text-sm font-extrabold text-slate-900">Type Roll Number or Name Above</h3>
+        <p class="text-xs text-slate-500 max-w-md mx-auto">Up to 5 matching profiles will appear. Tap yours to open and print your subject-wise Report Card.</p>
+      </section>
+
+      <!-- Candidate Directory Table -->
+      <section id="resultsTableSection" class="hidden bg-white rounded-2xl shadow-official border border-slate-200 overflow-hidden">
+        <div class="bg-slate-100 px-4 py-2.5 border-b border-slate-200 flex items-center justify-between gap-2 text-xs">
+          <span class="font-bold text-slate-700 uppercase tracking-wider">Matching Candidates (Max 5)</span>
+          <span id="shownCountBadge" class="px-2.5 py-0.5 bg-pbvm-blue text-white font-bold rounded-full font-mono">0 Shown</span>
+        </div>
+        <div class="overflow-x-auto">
+          <table class="w-full text-left border-collapse text-xs sm:text-sm">
+            <thead id="resultTableHead" class="bg-pbvm-darkblue text-white uppercase text-[11px] tracking-wider font-bold">
+              <tr><th class="p-3">Candidate Details</th></tr>
+            </thead>
+            <tbody id="resultTableBody" class="divide-y divide-slate-100"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Navigation -->
+      <nav aria-label="Portal Navigation" class="flex flex-wrap items-center justify-center gap-1.5 text-xs pt-1">
+        <a href="index.html" class="px-3 py-1.5 bg-white border border-slate-200 text-pbvm-blue font-bold rounded-lg flex items-center gap-1"><i data-lucide="home" class="w-3.5 h-3.5"></i>Home</a>
+        <a href="admit.html" class="px-3 py-1.5 bg-white border border-slate-200 text-pbvm-blue font-bold rounded-lg flex items-center gap-1"><i data-lucide="ticket" class="w-3.5 h-3.5"></i>Admit Card</a>
+        <a href="result 2026.html" class="px-3 py-1.5 bg-amber-400 text-slate-950 font-black rounded-lg flex items-center gap-1"><i data-lucide="trophy" class="w-3.5 h-3.5"></i>Result 2026</a>
+        <a href="result 2025.html" class="px-3 py-1.5 bg-white border border-slate-200 text-slate-600 font-semibold rounded-lg">Result 2025</a>
+        <a href="result 2024.html" class="px-3 py-1.5 bg-white border border-slate-200 text-slate-600 font-semibold rounded-lg">Result 2024</a>
+      </nav>
+
+    </main>
+
+    <!-- Footer with sync status -->
+    <footer class="bg-slate-950 text-slate-400 border-t border-slate-800 py-4 px-4 text-xs mt-auto">
+      <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left">
+        <div>
+          <div class="font-bold text-slate-200 uppercase tracking-wide">Paschim Banga Vigyan Mancha — Alipurduar District Committee</div>
+          <div class="text-[11px] text-slate-500">Official Science Popularization &amp; Examination Portal</div>
+        </div>
+        <div class="flex items-center gap-2 text-[11px]">
+          <span class="text-slate-500">Database:</span>
+          <span id="statSyncState" class="font-mono font-bold text-emerald-400">Synchronizing...</span>
+          <span class="text-slate-600">•</span>
+          <span id="lastSyncedTime" class="font-mono text-slate-300">Connecting...</span>
+          <button onclick="manualSync()" id="manualSyncBtn" type="button" class="inline-flex items-center gap-1 px-2 py-1 bg-amber-400 hover:bg-amber-300 text-slate-950 rounded-lg font-extrabold transition">
+            <i data-lucide="refresh-cw" id="syncIcon" class="w-3 h-3"></i> Sync
+          </button>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- Report Card Modal (Prints cleanly on 1 A4 page) -->
+  <div id="scoreCardModal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-50 hidden items-center justify-center p-4">
+    <div id="scoreCardModalCard" class="bg-white rounded-2xl shadow-2xl border border-slate-200 max-w-2xl w-full overflow-hidden flex flex-col max-h-[92vh]">
+      
+      <!-- Modal Top Bar -->
+      <div class="bg-slate-900 text-white px-5 py-3.5 flex items-center justify-between no-print">
+        <div class="flex items-center gap-2">
+          <i data-lucide="file-badge" class="w-5 h-5 text-amber-400"></i>
+          <span class="font-bold text-sm">Vigyan Aviksha 2026 — Official Report Card</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <button onclick="window.print()" type="button" class="inline-flex items-center gap-1.5 px-3.5 py-1.5 bg-amber-400 hover:bg-amber-300 text-slate-950 font-extrabold rounded-lg text-xs transition cursor-pointer">
+            <i data-lucide="printer" class="w-3.5 h-3.5"></i> Print Report Card
+          </button>
+          <button onclick="closeScoreCard()" type="button" class="text-slate-300 hover:text-white text-2xl font-bold leading-none px-1">&times;</button>
+        </div>
+      </div>
+
+      <!-- Printable Report Card Body -->
+      <div id="scoreCardPrintArea" class="p-6 sm:p-8 overflow-y-auto bg-white space-y-5">
+        
+        <!-- Header -->
+        <div class="border-b-2 border-pbvm-blue pb-3.5 flex items-center justify-between gap-4">
+          <div class="flex items-center gap-3.5">
+            <img 
+              src="pvbm logo_3.jpeg" 
+              onerror="this.onerror=null; this.src='pvbm logo.jpeg';" 
+              alt="PBVM Logo" 
+              class="w-12 h-12 object-contain"
+            />
+            <div>
+              <p class="text-[11px] font-bold text-pbvm-blue uppercase tracking-wider">Alipurduar District Committee</p>
+              <h3 class="font-cinzel text-base sm:text-lg font-black text-slate-900 uppercase">Paschim Banga Vigyan Mancha</h3>
+              <p class="text-[11px] font-bold text-slate-500 uppercase tracking-wider">Vigyan Aviksha 2026 • Official Report Card</p>
+            </div>
+          </div>
+          <div class="text-right">
+            <span class="inline-block px-2.5 py-1 bg-blue-50 text-pbvm-blue border border-blue-200 rounded font-bold text-[10px] uppercase">
+              Statement of Marks
+            </span>
+          </div>
+        </div>
+
+        <!-- Candidate Profile Details -->
+        <div>
+          <h4 class="text-[11px] font-extrabold text-slate-500 uppercase tracking-wider mb-2">Candidate Information</h4>
+          <div id="reportCandidateInfo" class="grid grid-cols-1 sm:grid-cols-2 print-grid-2 gap-2.5 text-xs">
+            <!-- Populated dynamically -->
+          </div>
+        </div>
+
+        <!-- Subject-wise Marks Table -->
+        <div>
+          <h4 class="text-[11px] font-extrabold text-slate-500 uppercase tracking-wider mb-2">Subject-Wise Marks Breakdown</h4>
+          <div class="border border-slate-300 rounded-xl overflow-hidden">
+            <table class="w-full text-left border-collapse text-xs">
+              <thead>
+                <tr class="bg-pbvm-darkblue text-white uppercase text-[10px] tracking-wider font-bold">
+                  <th class="p-2.5 w-14 text-center border-r border-blue-800">Sl No</th>
+                  <th class="p-2.5 border-r border-blue-800">Subject</th>
+                  <th class="p-2.5 w-32 text-right">Marks Obtained</th>
+                </tr>
+              </thead>
+              <tbody id="reportSubjectsBody" class="divide-y divide-slate-200">
+                <!-- Populated dynamically -->
+              </tbody>
+              <tfoot id="reportSummaryFoot" class="bg-slate-100 border-t-2 border-slate-300 font-bold text-slate-900">
+                <!-- Populated dynamically -->
+              </tfoot>
+            </table>
+          </div>
+        </div>
+
+        <!-- Footer Note -->
+        <div class="pt-3 border-t border-slate-200 flex items-center justify-between gap-2 text-[10px] text-slate-500">
+          <div>
+            Computer-generated Report Card • Auto-synchronized with District Committee Database.
+          </div>
+          <div class="font-bold text-slate-700">
+            Alipurduar, West Bengal
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    const RESULT_SHEET_ID = '1hQXnTEWq4VzWPf5aW69eU1yUkQGFDAukxUSBridcKxE';
+    const RESULT_SHEET_GID = '92325800';
+    const CACHE_KEY = 'pbvm_result_2026_cache_v8';
+    const AUTO_SYNC_INTERVAL_MS = 60000;
+    const MAX_DISPLAY_RECORDS = 5;
+
+    let sheetHeaders = [];
+    let allRecords = [];
+    let displayedRecords = [];
+    let syncTimeoutHandle = null;
+    let syncAttemptStep = 0;
+
+    // Column Indices
+    let nameColIdx = -1;
+    let rollColIdx = -1;
+    let classColIdx = -1;
+    let publicColIndices = []; // Columns displayed in the 5-row matching candidate profile (excludes S/N, Percentile, Medium, Exam Venue, and all marks)
+    let reportInfoColIndices = []; // Columns displayed in the Report Card Candidate Information section (includes Medium and Exam Venue)
+
+    // Subject & Summary Column Indices
+    let gkColIdx = -1;
+    let genSciColIdx = -1;
+    let lifeSciColIdx = -1;
+    let physSciColIdx = -1;
+    let mathColIdx = -1;
+    let totalColIdx = -1;
+    let rankColIdx = -1;
+    let gradeColIdx = -1;
+    let pctColIdx = -1;
+
+    // Strictly excludes S/N, Percentile, and all marks/score/rank columns from candidate profile info
+    function isHiddenFromReportCardInfo(header) {
+      const h = String(header ?? '').trim();
+      return /^(s\s*\/?\s*n\.?|sl\.?\s*no\.?|serial(\s*no\.?)?)$/i.test(h) ||
+             /percentile|percent|%/i.test(h) ||
+             /general\s*knowledge|\bgk\b|g\.k|general\s*science|life\s*science|\blife\b|\bls\b|l\.s|physical\s*science|\bphysical\b|\bps\b|p\.s|science|\bsci\b|math|mathematics|total|marks|score|obtained|rank|position|grade|result|status|remark/i.test(h);
+    }
+
+    // Additionally omits Medium and Exam Venue from the Matching Candidates (Max 5) table
+    function isHiddenFromMatchingTable(header) {
+      const h = String(header ?? '').trim();
+      return isHiddenFromReportCardInfo(h) ||
+             /\bmedium\b/i.test(h) ||
+             /\b(exam\s*)?(venue|cent(re|er))\b/i.test(h);
+    }
+
+    function detectKeyColumns(headers) {
+      nameColIdx = headers.findIndex(h => /name|candidate|student/i.test(h));
+      rollColIdx = headers.findIndex(h => /roll|reg|id|code/i.test(h));
+      classColIdx = headers.findIndex(h => /class|group|category|std/i.test(h));
+
+      // Detect individual subject columns cleanly
+      gkColIdx = headers.findIndex(h => /general\s*knowledge|\bgk\b|g\.k/i.test(h));
+      lifeSciColIdx = headers.findIndex(h => /life\s*science|\blife\b|\bls\b|l\.s/i.test(h));
+      physSciColIdx = headers.findIndex(h => /physical\s*science|\bphysical\b|\bps\b|p\.s/i.test(h));
+      genSciColIdx = headers.findIndex((h, idx) => idx !== lifeSciColIdx && idx !== physSciColIdx && /general\s*science|science|\bsci\b/i.test(h));
+      mathColIdx = headers.findIndex(h => /math|mathematics/i.test(h));
+
+      // Detect summary columns
+      totalColIdx = headers.findIndex(h => /total|grand|aggregate|sum|obtained/i.test(h));
+      rankColIdx = headers.findIndex(h => /rank|position|merit/i.test(h));
+      gradeColIdx = headers.findIndex(h => /grade|division|status|result|remark/i.test(h));
+      pctColIdx = headers.findIndex(h => /percentile|percent|%/i.test(h));
+
+      // Report Card candidate info columns (excludes S/N, Percentile, and Marks, keeps Medium & Exam Venue)
+      reportInfoColIndices = headers
+        .map((h, idx) => ({ h, idx }))
+        .filter(item => !isHiddenFromReportCardInfo(item.h))
+        .map(item => item.idx);
+
+      if (reportInfoColIndices.length === 0) {
+        reportInfoColIndices = headers.map((_, idx) => idx).slice(0, 4);
+      }
+
+      // Matching Candidates (Max 5) table columns (also omits Medium and Exam Venue)
+      publicColIndices = headers
+        .map((h, idx) => ({ h, idx }))
+        .filter(item => !isHiddenFromMatchingTable(item.h))
+        .map(item => item.idx);
+
+      if (publicColIndices.length === 0) {
+        publicColIndices = headers.map((_, idx) => idx).slice(0, 4);
+      }
+    }
+
+    /**
+     * Strictly determines the candidate's class level:
+     * Returns 'JUNIOR' for Classes IV, V, VI, VII, VIII (4, 5, 6, 7, 8) -> 3 subjects:
+     *   1. GENERAL KNOWLEDGE
+     *   2. GENERAL SCIENCE
+     *   3. MATHEMATICS
+     * Returns 'SENIOR' for Classes IX, X (9, 10) -> 4 subjects:
+     *   1. GENERAL KNOWLEDGE
+     *   2. LIFE SCIENCE
+     *   3. PHYSICAL SCIENCE
+     *   4. MATHEMATICS
+     */
+    function getClassTier(row) {
+      const rawClass = classColIdx !== -1 ? String(row[classColIdx] ?? '').trim().toUpperCase() : '';
+      // Remove common prefixes like "CLASS", "CL", "STD", punctuation, and extra spaces
+      const cleaned = rawClass
+        .replace(/^(CLASS|CL|STD|STANDARD)[\s\-:.]*/i, '')
+        .replace(/[^A-Z0-9]/g, '');
+
+      // Explicit match for Class IV, V, VI, VII, VIII (Junior Tier: 3 subjects)
+      if (['IV', 'V', 'VI', 'VII', 'VIII', '4', '5', '6', '7', '8'].includes(cleaned)) {
+        return 'JUNIOR';
+      }
+
+      // Explicit match for Class IX, X (Senior Tier: 4 subjects)
+      if (['IX', 'X', '9', '10'].includes(cleaned)) {
+        return 'SENIOR';
+      }
+
+      // Token-based check in case class string has extra words (e.g. "Class - VIII (Bengali)" or "IX-A")
+      if (/\b(VIII|VII|VI|IV|V|4|5|6|7|8)\b/.test(rawClass)) {
+        return 'JUNIOR';
+      }
+      if (/\b(IX|X|9|10)\b/.test(rawClass)) {
+        return 'SENIOR';
+      }
+
+      // Fallback check via Roll Number prefix if roll numbers encode class (e.g. "04-...", "08-...", "09-...", "10-...", "IV-...", "IX-...")
+      const rawRoll = rollColIdx !== -1 ? String(row[rollColIdx] ?? '').trim().toUpperCase() : '';
+      if (/^(0?4|0?5|0?6|0?7|0?8|IV|V|VI|VII|VIII)[\-\/A-Z]/.test(rawRoll)) {
+        return 'JUNIOR';
+      }
+      if (/^(0?9|10|IX|X)[\-\/A-Z]/.test(rawRoll)) {
+        return 'SENIOR';
+      }
+
+      // Final fallback based on which subject cells are populated
+      const lsVal = lifeSciColIdx !== -1 ? String(row[lifeSciColIdx] ?? '').trim() : '';
+      const psVal = physSciColIdx !== -1 ? String(row[physSciColIdx] ?? '').trim() : '';
+      const hasValidSeniorSubject = (lsVal !== '' && lsVal !== '-' && lsVal !== '—' && lsVal.toUpperCase() !== 'NA' && lsVal.toUpperCase() !== 'N/A') ||
+                                    (psVal !== '' && psVal !== '-' && psVal !== '—' && psVal.toUpperCase() !== 'NA' && psVal.toUpperCase() !== 'N/A');
+
+      return hasValidSeniorSubject ? 'SENIOR' : 'JUNIOR';
+    }
+
+    function escapeHtml(str) {
+      return String(str ?? '')
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
+    }
+
+    function renderTableHeaders() {
+      const thead = document.getElementById('resultTableHead');
+      if (!sheetHeaders.length) return;
+
+      thead.innerHTML = `
+        <tr>
+          ${publicColIndices.map(cIdx => `<th class="p-3.5 whitespace-nowrap border-r border-blue-900/50">${escapeHtml(sheetHeaders[cIdx])}</th>`).join('')}
+          <th class="p-3.5 text-center whitespace-nowrap">Report Card</th>
+        </tr>
+      `;
+    }
+
+    function handleLiveSearch() {
+      executeSearch();
+    }
+
+    function handleFormSubmit(event) {
+      if (event) event.preventDefault();
+      executeSearch();
+    }
+
+    function executeSearch() {
+      const inputEl = document.getElementById('searchInput');
+      const query = inputEl.value.trim().toLowerCase();
+      const clearBtn = document.getElementById('clearSearchBtn');
+      const emptyPromptCard = document.getElementById('emptyPromptCard');
+      const resultsTableSection = document.getElementById('resultsTableSection');
+      const matchSummaryText = document.getElementById('matchSummaryText');
+
+      if (query.length > 0) {
+        clearBtn.classList.remove('hidden');
+      } else {
+        clearBtn.classList.add('hidden');
+      }
+
+      if (!query) {
+        displayedRecords = [];
+        emptyPromptCard.classList.remove('hidden');
+        resultsTableSection.classList.add('hidden');
+        matchSummaryText.textContent = '';
+        return;
+      }
+
+      emptyPromptCard.classList.add('hidden');
+      resultsTableSection.classList.remove('hidden');
+
+      if (allRecords.length === 0) {
+        displayedRecords = [];
+        renderTableRows(true);
+        return;
+      }
+
+      const matches = [];
+      let totalMatchesCount = 0;
+
+      for (let i = 0; i < allRecords.length; i++) {
+        const row = allRecords[i];
+        let searchableText = '';
+
+        if (nameColIdx !== -1 || rollColIdx !== -1) {
+          const nameVal = nameColIdx !== -1 ? (row[nameColIdx] || '') : '';
+          const rollVal = rollColIdx !== -1 ? (row[rollColIdx] || '') : '';
+          searchableText = `${rollVal} ${nameVal}`.toLowerCase();
+        } else {
+          searchableText = publicColIndices.map(idx => row[idx] || '').join(' ').toLowerCase();
+        }
+
+        if (searchableText.includes(query)) {
+          totalMatchesCount++;
+          if (matches.length < MAX_DISPLAY_RECORDS) {
+            matches.push(row);
+          }
+        }
+      }
+
+      displayedRecords = matches;
+
+      if (totalMatchesCount > MAX_DISPLAY_RECORDS) {
+        matchSummaryText.textContent = `Showing top ${MAX_DISPLAY_RECORDS} of ${totalMatchesCount} matches — enter full Roll Number or Name to narrow down`;
+      } else if (totalMatchesCount > 0) {
+        matchSummaryText.textContent = `${totalMatchesCount} matching ${totalMatchesCount === 1 ? 'record' : 'records'} found`;
+      } else {
+        matchSummaryText.textContent = 'No matching records found';
+      }
+
+      renderTableRows(false);
+    }
+
+    function renderTableRows(isStillLoading) {
+      const tbody = document.getElementById('resultTableBody');
+      const shownCountBadge = document.getElementById('shownCountBadge');
+
+      shownCountBadge.textContent = `${displayedRecords.length} Shown`;
+
+      if (isStillLoading) {
+        tbody.innerHTML = `
+          <tr>
+            <td colspan="${Math.max(1, publicColIndices.length + 1)}" class="p-8 text-center text-slate-500">
+              <div class="flex flex-col items-center justify-center gap-2">
+                <i data-lucide="loader-2" class="w-6 h-6 text-pbvm-blue animate-spin"></i>
+                <p class="font-bold text-slate-700 text-xs">Loading database records, please wait...</p>
+              </div>
+            </td>
+          </tr>
+        `;
+        if (window.lucide) lucide.createIcons();
+        return;
+      }
+
+      if (displayedRecords.length === 0) {
+        tbody.innerHTML = `
+          <tr>
+            <td colspan="${Math.max(1, publicColIndices.length + 1)}" class="p-8 text-center text-slate-500">
+              <div class="flex flex-col items-center justify-center gap-2">
+                <i data-lucide="search-x" class="w-7 h-7 text-slate-400"></i>
+                <p class="font-bold text-slate-700 text-sm">No matching candidate record found</p>
+                <p class="text-xs text-slate-400">Please check the Roll Number or Candidate Name and try again.</p>
+              </div>
+            </td>
+          </tr>
+        `;
+        if (window.lucide) lucide.createIcons();
+        return;
+      }
+
+      tbody.innerHTML = displayedRecords.map((row, idx) => `
+        <tr onclick="openScoreCard(${idx})" class="hover:bg-blue-50/80 transition cursor-pointer group">
+          ${publicColIndices.map(cIdx => {
+            const cell = row[cIdx] ?? '';
+            const isName = cIdx === nameColIdx;
+            const isRoll = cIdx === rollColIdx;
+            let cellClass = 'p-3.5 text-slate-700 border-r border-slate-100';
+            if (isName) cellClass = 'p-3.5 font-bold text-slate-900 border-r border-slate-100';
+            if (isRoll) cellClass = 'p-3.5 font-mono font-bold text-pbvm-blue border-r border-slate-100 whitespace-nowrap';
+            return `<td class="${cellClass}">${escapeHtml(cell)}</td>`;
+          }).join('')}
+          <td class="p-3.5 text-center whitespace-nowrap">
+            <button type="button" class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-amber-100 group-hover:bg-amber-400 text-amber-900 group-hover:text-slate-950 rounded-lg text-xs font-bold transition">
+              <i data-lucide="eye" class="w-3.5 h-3.5"></i> View Marks
+            </button>
+          </td>
+        </tr>
+      `).join('');
+
+      if (window.lucide) lucide.createIcons();
+    }
+
+    function clearSearch() {
+      const inputEl = document.getElementById('searchInput');
+      inputEl.value = '';
+      executeSearch();
+      inputEl.focus();
+    }
+
+    function getNumericValue(val) {
+      const cleaned = String(val ?? '').replace(/[^0-9.-]/g, '');
+      const num = parseFloat(cleaned);
+      return Number.isFinite(num) ? num : null;
+    }
+
+    function openScoreCard(idx) {
+      const row = displayedRecords[idx];
+      if (!row) return;
+
+      // 1. Candidate Information Grid (all non-marks, non-S/N, non-Percentile columns)
+      const infoContainer = document.getElementById('reportCandidateInfo');
+      infoContainer.innerHTML = reportInfoColIndices.map(cIdx => `
+        <div class="p-2.5 rounded-xl bg-slate-50 border border-slate-200">
+          <div class="text-[10px] font-bold uppercase tracking-wider text-slate-400">${escapeHtml(sheetHeaders[cIdx])}</div>
+          <div class="text-xs sm:text-sm font-bold text-slate-900 mt-0.5 break-words">${escapeHtml(row[cIdx] || '—')}</div>
+        </div>
+      `).join('');
+
+      // 2. Strict Class-Wise Subject Selection:
+      // JUNIOR (Class IV, V, VI, VII, VIII) -> Strictly 3 subjects:
+      //   1. GENERAL KNOWLEDGE
+      //   2. GENERAL SCIENCE
+      //   3. MATHEMATICS
+      // SENIOR (Class IX, X) -> Strictly 4 subjects:
+      //   1. GENERAL KNOWLEDGE
+      //   2. LIFE SCIENCE
+      //   3. PHYSICAL SCIENCE
+      //   4. MATHEMATICS
+      const tier = getClassTier(row);
+
+      let subjectList = [];
+      if (tier === 'SENIOR') {
+        subjectList = [
+          { name: 'GENERAL KNOWLEDGE', colIdx: gkColIdx },
+          { name: 'LIFE SCIENCE', colIdx: lifeSciColIdx },
+          { name: 'PHYSICAL SCIENCE', colIdx: physSciColIdx },
+          { name: 'MATHEMATICS', colIdx: mathColIdx }
+        ];
+      } else {
+        subjectList = [
+          { name: 'GENERAL KNOWLEDGE', colIdx: gkColIdx },
+          { name: 'GENERAL SCIENCE', colIdx: genSciColIdx },
+          { name: 'MATHEMATICS', colIdx: mathColIdx }
+        ];
+      }
+
+      // Render Subject Rows
+      const subjectsBody = document.getElementById('reportSubjectsBody');
+      let computedSum = 0;
+      let hasAnyNumericMark = false;
+
+      subjectsBody.innerHTML = subjectList.map((subj, sIdx) => {
+        const rawMark = subj.colIdx !== -1 ? (row[subj.colIdx] || '—') : '—';
+        const num = getNumericValue(rawMark);
+        if (num !== null) {
+          computedSum += num;
+          hasAnyNumericMark = true;
+        }
+        return `
+          <tr class="hover:bg-slate-50">
+            <td class="p-2.5 text-center font-mono font-bold text-slate-500 border-r border-slate-200">${sIdx + 1}</td>
+            <td class="p-2.5 font-bold text-slate-800 border-r border-slate-200">${escapeHtml(subj.name)}</td>
+            <td class="p-2.5 text-right font-mono font-extrabold text-pbvm-blue text-sm">${escapeHtml(rawMark)}</td>
+          </tr>
+        `;
+      }).join('');
+
+      // 3. Render Summary Footer (Total Marks, Percentile, Rank, Status/Grade if present in sheet)
+      const summaryFoot = document.getElementById('reportSummaryFoot');
+      let totalDisplay = '—';
+      if (totalColIdx !== -1 && (row[totalColIdx] || '').trim() !== '') {
+        totalDisplay = row[totalColIdx];
+      } else if (hasAnyNumericMark) {
+        totalDisplay = Number.isInteger(computedSum) ? String(computedSum) : computedSum.toFixed(2);
+      }
+
+      const extraSummaryRows = [];
+      if (pctColIdx !== -1 && (row[pctColIdx] || '').trim() !== '') {
+        extraSummaryRows.push({ label: sheetHeaders[pctColIdx], val: row[pctColIdx] });
+      }
+      if (rankColIdx !== -1 && (row[rankColIdx] || '').trim() !== '') {
+        extraSummaryRows.push({ label: sheetHeaders[rankColIdx], val: row[rankColIdx] });
+      }
+      if (gradeColIdx !== -1 && (row[gradeColIdx] || '').trim() !== '') {
+        extraSummaryRows.push({ label: sheetHeaders[gradeColIdx], val: row[gradeColIdx] });
+      }
+
+      summaryFoot.innerHTML = `
+        <tr class="bg-blue-50/80 text-pbvm-darkblue">
+          <td colspan="2" class="p-2.5 text-right uppercase tracking-wider text-xs font-extrabold border-r border-slate-300">
+            Total Marks Obtained
+          </td>
+          <td class="p-2.5 text-right font-mono text-base font-black text-pbvm-darkblue">
+            ${escapeHtml(totalDisplay)}
+          </td>
+        </tr>
+        ${extraSummaryRows.map(item => `
+          <tr class="bg-slate-100 text-slate-800">
+            <td colspan="2" class="p-2 text-right uppercase tracking-wider text-[11px] font-bold border-r border-slate-300">
+              ${escapeHtml(item.label)}
+            </td>
+            <td class="p-2 text-right font-mono text-xs font-extrabold text-slate-900">
+              ${escapeHtml(item.val)}
+            </td>
+          </tr>
+        `).join('')}
+      `;
+
+      const modal = document.getElementById('scoreCardModal');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+      if (window.lucide) lucide.createIcons();
+    }
+
+    function closeScoreCard() {
+      const modal = document.getElementById('scoreCardModal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+
+    function applyParsedData(headers, rows) {
+      if (syncTimeoutHandle) {
+        clearTimeout(syncTimeoutHandle);
+        syncTimeoutHandle = null;
+      }
+
+      const syncIcon = document.getElementById('syncIcon');
+      if (syncIcon) syncIcon.classList.remove('animate-spin');
+
+      sheetHeaders = headers;
+      allRecords = rows;
+
+      detectKeyColumns(sheetHeaders);
+      renderTableHeaders();
+
+      if (document.getElementById('searchInput').value.trim()) {
+        executeSearch();
+      }
+
+      document.getElementById('statSyncState').textContent = 'Ready (Live Synced)';
+      const nowStr = new Date().toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+      document.getElementById('lastSyncedTime').textContent = nowStr;
+      document.getElementById('syncAlertBanner').classList.add('hidden');
+
+      try {
+        localStorage.setItem(CACHE_KEY, JSON.stringify({
+          headers: sheetHeaders,
+          records: allRecords,
+          timestamp: Date.now()
+        }));
+      } catch (e) {}
+    }
+
+    function processGvizResponse(response) {
+      if (!response || response.status !== 'ok' || !response.table || !response.table.rows) {
+        handleNextSyncStep();
+        return;
+      }
+
+      const table = response.table;
+      let headers = table.cols.map(c => (c && c.label ? String(c.label).trim() : ''));
+      let startRow = 0;
+
+      if (headers.every(h => !h) && table.rows.length > 0) {
+        for (let r = 0; r < Math.min(table.rows.length, 10); r++) {
+          const rowObj = table.rows[r];
+          if (!rowObj || !rowObj.c) continue;
+          const vals = rowObj.c.map(cell => (cell && (cell.f || cell.v) !== null ? String(cell.f || cell.v).trim() : ''));
+          if (vals.filter(Boolean).length >= 2) {
+            headers = vals;
+            startRow = r + 1;
+            break;
+          }
+        }
+      }
+
+      while (headers.length > 0 && !headers[headers.length - 1]) {
+        headers.pop();
+      }
+      headers = headers.map((h, i) => h || `Column ${i + 1}`);
+
+      const rows = [];
+      for (let r = startRow; r < table.rows.length; r++) {
+        const rawRow = table.rows[r];
+        if (!rawRow || !rawRow.c) continue;
+        const parsedRow = headers.map((_, c) => {
+          const cell = rawRow.c[c];
+          if (!cell) return '';
+          if (cell.f !== undefined && cell.f !== null) return String(cell.f).trim();
+          if (cell.v !== undefined && cell.v !== null) return String(cell.v).trim();
+          return '';
+        });
+        if (parsedRow.some(v => v !== '')) {
+          rows.push(parsedRow);
+        }
+      }
+
+      if (headers.length > 0 && rows.length > 0) {
+        applyParsedData(headers, rows);
+      } else {
+        handleNextSyncStep();
+      }
+    }
+
+    window.google = window.google || {};
+    window.google.visualization = window.google.visualization || {};
+    window.google.visualization.Query = window.google.visualization.Query || {};
+    window.google.visualization.Query.setResponse = processGvizResponse;
+    window.pbvmResult2026Handler = processGvizResponse;
+
+    function injectGvizScript(url) {
+      const oldScript = document.getElementById('gvizResultScript');
+      if (oldScript) oldScript.remove();
+
+      if (syncTimeoutHandle) clearTimeout(syncTimeoutHandle);
+      syncTimeoutHandle = setTimeout(() => {
+        handleNextSyncStep();
+      }, 8000);
+
+      const script = document.createElement('script');
+      script.id = 'gvizResultScript';
+      script.src = url;
+      script.onerror = () => {
+        if (syncTimeoutHandle) clearTimeout(syncTimeoutHandle);
+        handleNextSyncStep();
+      };
+      document.body.appendChild(script);
+    }
+
+    function handleNextSyncStep() {
+      syncAttemptStep++;
+      const ts = Date.now();
+
+      if (syncAttemptStep === 1) {
+        injectGvizScript(`https://docs.google.com/spreadsheets/d/${RESULT_SHEET_ID}/gviz/tq?gid=${RESULT_SHEET_GID}&headers=1&tqx=responseHandler:pbvmResult2026Handler&t=${ts}`);
+      } else if (syncAttemptStep === 2) {
+        injectGvizScript(`https://docs.google.com/spreadsheets/d/${RESULT_SHEET_ID}/gviz/tq?gid=${RESULT_SHEET_GID}&tqx=responseHandler:pbvmResult2026Handler&t=${ts}`);
+      } else if (syncAttemptStep === 3) {
+        injectGvizScript(`https://docs.google.com/spreadsheets/d/${RESULT_SHEET_ID}/gviz/tq?tqx=responseHandler:pbvmResult2026Handler&t=${ts}`);
+      } else {
+        const syncIcon = document.getElementById('syncIcon');
+        if (syncIcon) syncIcon.classList.remove('animate-spin');
+
+        const alertBanner = document.getElementById('syncAlertBanner');
+        document.getElementById('syncAlertText').textContent = 'Database Connection Delayed';
+        document.getElementById('syncAlertSub').textContent =
+          'Ensure the Google Sheet is published via File → Share → Publish to web → Publish, and General Access is set to "Anyone with the link" (Viewer).';
+        alertBanner.classList.remove('hidden');
+
+        if (allRecords.length === 0) {
+          document.getElementById('statSyncState').textContent = 'Offline / Retry Needed';
+        } else {
+          document.getElementById('statSyncState').textContent = 'Ready (Cached)';
+        }
+      }
+    }
+
+    function syncResultSheet() {
+      const syncIcon = document.getElementById('syncIcon');
+      if (syncIcon) syncIcon.classList.add('animate-spin');
+      syncAttemptStep = 0;
+      handleNextSyncStep();
+    }
+
+    function manualSync() {
+      syncResultSheet();
+    }
+
+    function loadCachedResultsFirst() {
+      try {
+        const raw = localStorage.getItem(CACHE_KEY);
+        if (!raw) return;
+        const parsed = JSON.parse(raw);
+        if (parsed && Array.isArray(parsed.headers) && Array.isArray(parsed.records) && parsed.records.length > 0) {
+          sheetHeaders = parsed.headers;
+          allRecords = parsed.records;
+          detectKeyColumns(sheetHeaders);
+          renderTableHeaders();
+          document.getElementById('statSyncState').textContent = 'Ready (Cached)';
+          document.getElementById('lastSyncedTime').textContent = 'Cached • Refreshing...';
+        }
+      } catch (e) {}
+    }
+
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeScoreCard();
+    });
+
+    document.addEventListener('DOMContentLoaded', () => {
+      if (window.lucide) lucide.createIcons();
+      loadCachedResultsFirst();
+      syncResultSheet();
+      setInterval(syncResultSheet, AUTO_SYNC_INTERVAL_MS);
+    });
+  </script>
+</body>
+</html>
