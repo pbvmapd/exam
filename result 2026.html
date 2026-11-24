@@ -168,17 +168,16 @@
         </form>
       </section>
 
-      <!-- Error / Diagnostic Alert Banner -->
+      <!-- Result Schedule / Status Banner -->
       <div id="syncAlertBanner" class="hidden bg-amber-50 border border-amber-300 text-amber-900 rounded-2xl p-3 text-xs flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
-        <div class="flex items-start gap-2.5">
-          <i data-lucide="alert-triangle" class="w-5 h-5 text-amber-600 flex-shrink-0 mt-0.5"></i>
-          <div class="space-y-1">
-            <p id="syncAlertText" class="font-bold">Connecting to Database...</p>
-            <p id="syncAlertSub" class="text-[11px] text-amber-800"></p>
+        <div class="flex items-center gap-2.5">
+          <i data-lucide="clock" class="w-5 h-5 text-amber-600 flex-shrink-0"></i>
+          <div>
+            <p id="syncAlertText" class="font-bold text-sm">Result will be available from 3 PM on 24-11-2026</p>
           </div>
         </div>
         <button onclick="manualSync()" type="button" class="px-3.5 py-1.5 bg-amber-600 text-white font-bold rounded-lg hover:bg-amber-700 transition flex-shrink-0">
-          Retry Now
+          Refresh Status
         </button>
       </div>
 
@@ -226,8 +225,8 @@
           <div class="text-[11px] text-slate-500">Official Science Popularization &amp; Examination Portal</div>
         </div>
         <div class="flex items-center gap-2 text-[11px]">
-          <span class="text-slate-500">Database:</span>
-          <span id="statSyncState" class="font-mono font-bold text-emerald-400">Synchronizing...</span>
+          <span class="text-slate-500">Status:</span>
+          <span id="statSyncState" class="font-mono font-bold text-emerald-400">Checking...</span>
           <span class="text-slate-600">•</span>
           <span id="lastSyncedTime" class="font-mono text-slate-300">Connecting...</span>
           <button onclick="manualSync()" id="manualSyncBtn" type="button" class="inline-flex items-center gap-1 px-2 py-1 bg-amber-400 hover:bg-amber-300 text-slate-950 rounded-lg font-extrabold transition">
@@ -427,22 +426,18 @@
      */
     function getClassTier(row) {
       const rawClass = classColIdx !== -1 ? String(row[classColIdx] ?? '').trim().toUpperCase() : '';
-      // Remove common prefixes like "CLASS", "CL", "STD", punctuation, and extra spaces
       const cleaned = rawClass
         .replace(/^(CLASS|CL|STD|STANDARD)[\s\-:.]*/i, '')
         .replace(/[^A-Z0-9]/g, '');
 
-      // Explicit match for Class IV, V, VI, VII, VIII (Junior Tier: 3 subjects)
       if (['IV', 'V', 'VI', 'VII', 'VIII', '4', '5', '6', '7', '8'].includes(cleaned)) {
         return 'JUNIOR';
       }
 
-      // Explicit match for Class IX, X (Senior Tier: 4 subjects)
       if (['IX', 'X', '9', '10'].includes(cleaned)) {
         return 'SENIOR';
       }
 
-      // Token-based check in case class string has extra words (e.g. "Class - VIII (Bengali)" or "IX-A")
       if (/\b(VIII|VII|VI|IV|V|4|5|6|7|8)\b/.test(rawClass)) {
         return 'JUNIOR';
       }
@@ -450,7 +445,6 @@
         return 'SENIOR';
       }
 
-      // Fallback check via Roll Number prefix if roll numbers encode class (e.g. "04-...", "08-...", "09-...", "10-...", "IV-...", "IX-...")
       const rawRoll = rollColIdx !== -1 ? String(row[rollColIdx] ?? '').trim().toUpperCase() : '';
       if (/^(0?4|0?5|0?6|0?7|0?8|IV|V|VI|VII|VIII)[\-\/A-Z]/.test(rawRoll)) {
         return 'JUNIOR';
@@ -459,7 +453,6 @@
         return 'SENIOR';
       }
 
-      // Final fallback based on which subject cells are populated
       const lsVal = lifeSciColIdx !== -1 ? String(row[lifeSciColIdx] ?? '').trim() : '';
       const psVal = physSciColIdx !== -1 ? String(row[physSciColIdx] ?? '').trim() : '';
       const hasValidSeniorSubject = (lsVal !== '' && lsVal !== '-' && lsVal !== '—' && lsVal.toUpperCase() !== 'NA' && lsVal.toUpperCase() !== 'N/A') ||
@@ -575,8 +568,8 @@
           <tr>
             <td colspan="${Math.max(1, publicColIndices.length + 1)}" class="p-8 text-center text-slate-500">
               <div class="flex flex-col items-center justify-center gap-2">
-                <i data-lucide="loader-2" class="w-6 h-6 text-pbvm-blue animate-spin"></i>
-                <p class="font-bold text-slate-700 text-xs">Loading database records, please wait...</p>
+                <i data-lucide="clock" class="w-6 h-6 text-amber-600"></i>
+                <p class="font-bold text-slate-800 text-sm">Result will be available from 3 PM on 24-11-2026</p>
               </div>
             </td>
           </tr>
@@ -640,7 +633,6 @@
       const row = displayedRecords[idx];
       if (!row) return;
 
-      // 1. Candidate Information Grid (all non-marks, non-S/N, non-Percentile columns)
       const infoContainer = document.getElementById('reportCandidateInfo');
       infoContainer.innerHTML = reportInfoColIndices.map(cIdx => `
         <div class="p-2.5 rounded-xl bg-slate-50 border border-slate-200">
@@ -649,16 +641,6 @@
         </div>
       `).join('');
 
-      // 2. Strict Class-Wise Subject Selection:
-      // JUNIOR (Class IV, V, VI, VII, VIII) -> Strictly 3 subjects:
-      //   1. GENERAL KNOWLEDGE
-      //   2. GENERAL SCIENCE
-      //   3. MATHEMATICS
-      // SENIOR (Class IX, X) -> Strictly 4 subjects:
-      //   1. GENERAL KNOWLEDGE
-      //   2. LIFE SCIENCE
-      //   3. PHYSICAL SCIENCE
-      //   4. MATHEMATICS
       const tier = getClassTier(row);
 
       let subjectList = [];
@@ -677,7 +659,6 @@
         ];
       }
 
-      // Render Subject Rows
       const subjectsBody = document.getElementById('reportSubjectsBody');
       let computedSum = 0;
       let hasAnyNumericMark = false;
@@ -698,7 +679,6 @@
         `;
       }).join('');
 
-      // 3. Render Summary Footer (Total Marks, Percentile, Rank, Status/Grade if present in sheet)
       const summaryFoot = document.getElementById('reportSummaryFoot');
       let totalDisplay = '—';
       if (totalColIdx !== -1 && (row[totalColIdx] || '').trim() !== '') {
@@ -875,13 +855,12 @@
         if (syncIcon) syncIcon.classList.remove('animate-spin');
 
         const alertBanner = document.getElementById('syncAlertBanner');
-        document.getElementById('syncAlertText').textContent = 'Database Connection Delayed';
-        document.getElementById('syncAlertSub').textContent =
-          'Ensure the Google Sheet is published via File → Share → Publish to web → Publish, and General Access is set to "Anyone with the link" (Viewer).';
+        document.getElementById('syncAlertText').textContent = 'Result will be available from 3 PM on 24-11-2026';
         alertBanner.classList.remove('hidden');
 
         if (allRecords.length === 0) {
-          document.getElementById('statSyncState').textContent = 'Offline / Retry Needed';
+          document.getElementById('statSyncState').textContent = 'Scheduled (3 PM, 24-11-2026)';
+          document.getElementById('lastSyncedTime').textContent = 'Awaiting Release';
         } else {
           document.getElementById('statSyncState').textContent = 'Ready (Cached)';
         }
